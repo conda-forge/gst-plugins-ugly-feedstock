@@ -1,5 +1,5 @@
 {% set name = "gst-plugins-ugly" %}
-{% set version = "1.14.5" %}
+{% set version = "1.18.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-{{ version }}.tar.xz
-  sha256: 3ed802727286f18a9331cfed6ee85d07744d87cf868baae976615441f4bee04b
+  sha256: 218df0ce0d31e8ca9cdeb01a3b0c573172cc9c21bb3d41811c7820145623d13c
 
 build:
   number: 0
@@ -34,13 +34,11 @@ requirements:
     # expat here is _only_ required for mesa-dri-drivers
     - {{ cdt('expat') }}                 # [linux]
     - {{ cdt('libselinux-devel') }}      # [linux]
-    - x264
+    #- x264
     - pkg-config
-    - m4
-    - autoconf
-    - automake
-    - make
-    - perl
+    #- perl
+    - meson
+    - ninja
   host:
     - gstreamer
     - gst-plugins-base
