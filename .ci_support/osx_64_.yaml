@@ -16,11 +16,6 @@ gstreamer:
 - '1.18'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-perl:
-- 5.26.2
-pin_run_as_build:
-  perl:
-    max_pin: x.x.x
 target_platform:
 - osx-64
 x264:
