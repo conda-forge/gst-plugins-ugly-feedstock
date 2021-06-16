@@ -10,8 +10,7 @@ source:
   sha256: 218df0ce0d31e8ca9cdeb01a3b0c573172cc9c21bb3d41811c7820145623d13c
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
   run_exports:
     # remove symbols at .90 patch releases just before minor versions?
     #    https://abi-laboratory.pro/tracker/timeline/gstreamer/
@@ -40,6 +39,7 @@ requirements:
     - meson
     - ninja
   host:
+    - libiconv
     - gstreamer
     - gst-plugins-base
     - gobject-introspection
@@ -55,17 +55,19 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/lib/libgstallocators-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstapp-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstaudio-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstfft-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstpbutils-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstriff-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstrtp-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstrtsp-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstsdp-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgsttag-1.0${SHLIB_EXT}
-    - test -f $PREFIX/lib/libgstvideo-1.0${SHLIB_EXT}
+    - test -f $PREFIX/lib/gstreamer-1.0/libgstasf${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/gstreamer-1.0/libgstdvdlpcmdec${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/gstreamer-1.0/libgstdvdsub${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/gstreamer-1.0/libgstrealmedia${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/gstreamer-1.0/libgstx264${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/gstreamer-1.0/libgstxingmux${SHLIB_EXT}  # [unix]
+    - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstasf.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstdvdlpcmdec.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstdvdsub.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstrealmedia.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstx264.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstxingmux.dll exit 1  # [win]
+    - gst-inspect-1.0 --plugin x264
 
 about:
   home: http://gstreamer.freedesktop.org/
@@ -77,3 +79,4 @@ about:
 extra:
   recipe-maintainers:
     - scopatz
+    - kuepe-sl
