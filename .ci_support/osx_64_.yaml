@@ -14,8 +14,13 @@ gst_plugins_base:
 - '1.18'
 gstreamer:
 - '1.18'
+libiconv:
+- '1.16'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+pin_run_as_build:
+  libiconv:
+    max_pin: x.x
 target_platform:
 - osx-64
 x264:

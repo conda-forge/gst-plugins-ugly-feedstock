@@ -16,6 +16,11 @@ gst_plugins_base:
 - '1.18'
 gstreamer:
 - '1.18'
+libiconv:
+- '1.16'
+pin_run_as_build:
+  libiconv:
+    max_pin: x.x
 target_platform:
 - linux-64
 x264:
