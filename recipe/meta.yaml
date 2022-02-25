@@ -10,7 +10,7 @@ source:
   sha256: df32803e98f8a9979373fa2ca7e05e62f977b1097576d3a80619d9f5c69f66d9
 
 build:
-  number: 1
+  number: 2
   run_exports:
     # remove symbols at .90 patch releases just before minor versions?
     #    https://abi-laboratory.pro/tracker/timeline/gstreamer/

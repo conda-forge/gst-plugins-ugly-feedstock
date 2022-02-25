@@ -3,7 +3,7 @@ BUILD:
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '10'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -19,7 +19,7 @@ glib:
 gst_plugins_base:
 - '1.18'
 gstreamer:
-- '1.18'
+- '1.20'
 libiconv:
 - '1.16'
 pin_run_as_build:
