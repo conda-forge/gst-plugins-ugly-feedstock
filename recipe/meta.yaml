@@ -48,10 +48,6 @@ requirements:
     - libxcb                             # [linux]
     - pthread-stubs                      # [linux]
     - x264
-  run:
-    - gstreamer
-    - gst-plugins-base
-    - x264
 
 test:
   commands:
