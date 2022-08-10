@@ -24,4 +24,4 @@ pin_run_as_build:
 target_platform:
 - linux-ppc64le
 x264:
-- 1!161.*
+- 1!164.*
