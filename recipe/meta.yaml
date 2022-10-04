@@ -1,5 +1,5 @@
 {% set name = "gst-plugins-ugly" %}
-{% set version = "1.20.3" %}
+{% set version = "1.21.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-{{ version }}.tar.xz
-  sha256: 8caa20789a09c304b49cf563d33cca9421b1875b84fcc187e4a385fa01d6aefd
+  sha256: e3f7c0087cc8605e71c604fcee4630be36ebb122153f9e096ccf2e8c98cb0317
 
 build:
-  number: 2
+  number: 0
   run_exports:
     # remove symbols at .90 patch releases just before minor versions?
     #    https://abi-laboratory.pro/tracker/timeline/gstreamer/
