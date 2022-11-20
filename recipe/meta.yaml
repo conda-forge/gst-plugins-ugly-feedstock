@@ -63,6 +63,7 @@ test:
     - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstrealmedia.dll exit 1  # [win]
     - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstx264.dll exit 1  # [win]
     - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstxingmux.dll exit 1  # [win]
+    - gst-inspect-1.0 --help
     - gst-inspect-1.0 --plugin x264
 
 about:
