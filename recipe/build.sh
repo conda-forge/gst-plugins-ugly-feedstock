@@ -5,6 +5,15 @@ mkdir -p build
 pushd build
 
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$PREFIX/lib/pkgconfig:$BUILD_PREFIX/lib/pkgconfig
+EXTRA_FLAGS="-Dintrospection=enabled"
+if [[ $CONDA_BUILD_CROSS_COMPILATION == "1" ]]; then
+  # Add pkg-config to cross-file binaries since meson will disable it
+  # See https://github.com/mesonbuild/meson/issues/7276
+  echo "[binaries]" >> $BUILD_PREFIX/meson_cross_file.txt
+  echo "pkg-config = '$(which pkg-config)'" >> $BUILD_PREFIX/meson_cross_file.txt
+  # Use Meson cross-file flag to enable cross compilation
+  EXTRA_FLAGS="--cross-file $BUILD_PREFIX/meson_cross_file.txt -Dintrospection=disabled"
+fi
 
 meson_options=(
       -Dgpl=enabled
@@ -17,7 +26,8 @@ meson_options=(
 #  meson_options+=(-Dv4l2=disabled)
 #fi
 
-meson ${MESON_ARGS} \
+meson \
+      ${EXTRA_FLAGS} \
       --prefix=${PREFIX} \
       --buildtype=release \
       --wrap-mode=nofallback \
