@@ -17,7 +17,8 @@ meson_options=(
 #  meson_options+=(-Dv4l2=disabled)
 #fi
 
-meson --prefix=${PREFIX} \
+meson ${MESON_ARGS} \
+      --prefix=${PREFIX} \
       --buildtype=release \
       --libdir=$PREFIX/lib \
       --wrap-mode=nofallback \
