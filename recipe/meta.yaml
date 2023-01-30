@@ -38,6 +38,7 @@ requirements:
     #- perl
     - meson
     - ninja
+    - gettext                            # [osx and build_platform != target_platform]
   host:
     - libiconv
     - gstreamer
