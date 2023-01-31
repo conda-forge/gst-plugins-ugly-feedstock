@@ -10,7 +10,7 @@ source:
   sha256: 34dd6f4a44db30a7b171223e7789d863febe5aa20991cf920b0d25191968393c
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # remove symbols at .90 patch releases just before minor versions?
     #    https://abi-laboratory.pro/tracker/timeline/gstreamer/
@@ -38,6 +38,7 @@ requirements:
     #- perl
     - meson
     - ninja
+    - gettext                            # [osx and build_platform != target_platform]
   host:
     - libiconv
     - gstreamer
