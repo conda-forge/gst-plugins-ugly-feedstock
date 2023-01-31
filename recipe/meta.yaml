@@ -40,8 +40,8 @@ requirements:
     - ninja
   host:
     - libiconv
-    - gstreamer
-    - gst-plugins-base
+    - gstreamer         {{ version }}
+    - gst-plugins-base  {{ version }}
     - gobject-introspection
     - glib
     - gettext                            # [osx]
