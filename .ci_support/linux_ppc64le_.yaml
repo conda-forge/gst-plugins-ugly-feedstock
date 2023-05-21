@@ -14,6 +14,8 @@ glib:
 - '2'
 libiconv:
 - '1'
+libxcb:
+- '1.15'
 target_platform:
 - linux-ppc64le
 x264:
