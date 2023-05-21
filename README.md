@@ -1,11 +1,11 @@
-About gst-plugins-ugly
-======================
+About gst-plugins-ugly-feedstock
+================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gst-plugins-ugly-feedstock/blob/main/LICENSE.txt)
 
 Home: http://gstreamer.freedesktop.org/
 
 Package license: LGPL-2.1-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gst-plugins-ugly-feedstock/blob/main/LICENSE.txt)
 
 Summary: GStreamer Ugly Plug-ins
 
@@ -199,6 +199,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@hmaarrfk](https://github.com/hmaarrfk/)
 * [@kuepe-sl](https://github.com/kuepe-sl/)
 * [@scopatz](https://github.com/scopatz/)
 
