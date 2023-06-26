@@ -1,5 +1,5 @@
 {% set name = "gst-plugins-ugly" %}
-{% set version = "1.22.3" %}
+{% set version = "1.22.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,8 +7,7 @@ package:
 
 source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-{{ version }}.tar.xz
-  sha256: 3dc98ed5c2293368b3c4e6ce55d89be834a0a62e9bf88ef17928cf03b7d5a360
-
+  sha256: ffb461fda6c06d316c4be5682632cc8901454ed72b1098b1e0221bc55e673cd7
 build:
   number: 0
   run_exports:
@@ -19,19 +18,10 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ cdt('libxau-devel') }}          # [linux]
-    - {{ cdt('libxext-devel') }}         # [linux]
-    - {{ cdt('libx11-devel') }}          # [linux]
-    - {{ cdt('libxrender-devel') }}      # [linux]
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('libxdamage-devel') }}      # [linux]
-    - {{ cdt('libxfixes-devel') }}       # [linux]
-    - {{ cdt('libxxf86vm-devel') }}      # [linux]
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
     # expat here is _only_ required for mesa-dri-drivers
-    - {{ cdt('expat') }}                 # [linux]
     - {{ cdt('libselinux-devel') }}      # [linux]
     #- x264
     - pkg-config
@@ -49,7 +39,16 @@ requirements:
     - libxcb                             # [linux]
     - pthread-stubs                      # [linux]
     - x264
-
+    - xorg-libxfixes                     # [linux]
+    - xorg-libxext                       # [linux]
+    - xorg-xproto                        # [linux]
+    - xorg-libx11                        # [linux]
+    - expat                              # [linux]
+    - xorg-libxrender                    # [linux]
+    - xorg-libxdamage                    # [linux]
+    - xorg-libxxf86vm                    # [linux]
+    - xorg-libxau                        # [linux]
+    
 test:
   commands:
     - test -f $PREFIX/lib/gstreamer-1.0/libgstasf${SHLIB_EXT}  # [unix]
