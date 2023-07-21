@@ -1,5 +1,5 @@
 {% set name = "gst-plugins-ugly" %}
-{% set version = "1.22.4" %}
+{% set version = "1.22.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-{{ version }}.tar.xz
-  sha256: ffb461fda6c06d316c4be5682632cc8901454ed72b1098b1e0221bc55e673cd7
+  sha256: 2680473b218158f18467cac3e1c50291b7ff4e0710dd350a59eaacbc29c09a54
 build:
   number: 0
   run_exports:
@@ -48,7 +48,6 @@ requirements:
     - xorg-libxdamage                    # [linux]
     - xorg-libxxf86vm                    # [linux]
     - xorg-libxau                        # [linux]
-    
 test:
   commands:
     - test -f $PREFIX/lib/gstreamer-1.0/libgstasf${SHLIB_EXT}  # [unix]
