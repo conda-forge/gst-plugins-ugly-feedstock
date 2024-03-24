@@ -48,6 +48,9 @@ requirements:
     - xorg-libxdamage                    # [linux]
     - xorg-libxxf86vm                    # [linux]
     - xorg-libxau                        # [linux]
+  run:
+    # We want to pin harder than the run_export from gstreamer
+    - gstreamer         {{ version }}
 test:
   commands:
     - test -f $PREFIX/lib/gstreamer-1.0/libgstasf${SHLIB_EXT}  # [unix]
