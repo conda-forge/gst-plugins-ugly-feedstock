@@ -1,5 +1,5 @@
 {% set name = "gst-plugins-ugly" %}
-{% set version = "1.22.9" %}
+{% set version = "1.24.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-{{ version }}.tar.xz
-  sha256: 0bf685d66015a01dd3fc1671b64a1c8acb321dd9d4ab9e05a29ab19782aa6236
+  sha256: 6462d36ce64b74203a8b302c109e762b1dd404a6235dfec3c4255106b7b86976
 build:
   number: 0
   run_exports:
@@ -48,6 +48,9 @@ requirements:
     - xorg-libxdamage                    # [linux]
     - xorg-libxxf86vm                    # [linux]
     - xorg-libxau                        # [linux]
+  run:
+    # We want to pin harder than the run_export from gstreamer
+    - gstreamer         {{ version }}
 test:
   commands:
     - test -f $PREFIX/lib/gstreamer-1.0/libgstasf${SHLIB_EXT}  # [unix]
