@@ -29,14 +29,14 @@ requirements:
     #- perl
     - meson
     - ninja
-    - gettext                            # [osx and build_platform != target_platform]
+    - gettext-tools
   host:
     - libiconv
+    - libintl-devel                      # [not linux]
     - gstreamer         {{ version }}
     - gst-plugins-base  {{ version }}
     - gobject-introspection
     - glib
-    - gettext                            # [osx]
     - libxcb                             # [linux]
     - pthread-stubs                      # [linux]
     - x264
