@@ -21,7 +21,7 @@ glib:
 libiconv:
 - '1'
 libxcb:
-- '1.15'
+- '1.16'
 target_platform:
 - linux-64
 x264:
