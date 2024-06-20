@@ -24,8 +24,6 @@ glib:
 - '2'
 libiconv:
 - '1'
-libxcb:
-- '1.15'
 target_platform:
 - linux-aarch64
 x264:
