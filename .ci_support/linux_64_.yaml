@@ -26,3 +26,5 @@ target_platform:
 - linux-64
 x264:
 - 1!164.*
+zlib:
+- '1'

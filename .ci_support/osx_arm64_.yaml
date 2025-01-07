@@ -24,3 +24,5 @@ target_platform:
 - osx-arm64
 x264:
 - 1!164.*
+zlib:
+- '1'
