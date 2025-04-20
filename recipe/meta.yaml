@@ -19,11 +19,6 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    # expat here is _only_ required for mesa-dri-drivers
-    - {{ cdt('libselinux-devel') }}      # [linux]
     #- x264
     - pkg-config
     #- perl
@@ -31,6 +26,9 @@ requirements:
     - ninja
     - gettext-tools
   host:
+    - libgl-devel                        # [linux]
+    - libegl-devel                       # [linux]
+    - libdrm                             # [linux]
     - libiconv
     - libintl-devel                      # [not linux]
     - gstreamer         {{ version }}
@@ -41,11 +39,11 @@ requirements:
     - pthread-stubs                      # [linux]
     - x264
     - zlib
+    - expat                              # [linux]
+    - xorg-xorgproto                     # [linux]
     - xorg-libxfixes                     # [linux]
     - xorg-libxext                       # [linux]
-    - xorg-xproto                        # [linux]
     - xorg-libx11                        # [linux]
-    - expat                              # [linux]
     - xorg-libxrender                    # [linux]
     - xorg-libxdamage                    # [linux]
     - xorg-libxxf86vm                    # [linux]
