@@ -9,7 +9,7 @@ source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-{{ version }}.tar.xz
   sha256: 3a1f58a33aee8d13522865bcb564007a6837ef5711d7dfff8ce4260921013f8a
 build:
-  number: 0
+  number: 03a1f58a33aee8d13522865bcb564007a6837ef5711d7dfff8ce4260921013f8a
   run_exports:
     # remove symbols at .90 patch releases just before minor versions?
     #    https://abi-laboratory.pro/tracker/timeline/gstreamer/
@@ -18,10 +18,8 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
-    #- x264
+    - {{ stdlib('c') }}
     - pkg-config
-    #- perl
     - meson
     - ninja
     - gettext-tools
