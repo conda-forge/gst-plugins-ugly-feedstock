@@ -202,4 +202,5 @@ Feedstock Maintainers
 * [@hmaarrfk](https://github.com/hmaarrfk/)
 * [@kuepe-sl](https://github.com/kuepe-sl/)
 * [@scopatz](https://github.com/scopatz/)
+* [@tjwilli58](https://github.com/tjwilli58/)
 
