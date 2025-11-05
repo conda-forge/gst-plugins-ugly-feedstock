@@ -1,4 +1,4 @@
-{% set version = "1.26.6" %}
+{% set version = "1.24.13" %}
 
 package:
   name: gst-plugins-ugly
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-{{ version }}.tar.xz
-  sha256: 95032eee4580bb9826c008cbce5a2c3a78b980abb270c96a19b645f77255c491
+  sha256: dc08bb11dce0a43453466fb9034e4fe06709fb5af68475bcf6d288693b661a5d
 build:
   number: 0
   run_exports:
