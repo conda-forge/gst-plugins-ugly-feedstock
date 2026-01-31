@@ -8,7 +8,7 @@ source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-{{ version }}.tar.xz
   sha256: 743f28b93c941e0af385ab193a2150f9f79bc6269adc639f6475d984794c217c
 build:
-  number: 0
+  number: 1
   run_exports:
     # remove symbols at .90 patch releases just before minor versions?
     #    https://abi-laboratory.pro/tracker/timeline/gstreamer/
