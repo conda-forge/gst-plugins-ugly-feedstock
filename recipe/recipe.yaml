@@ -1,0 +1,90 @@
+schema_version: 1
+
+context:
+  version: "1.26.11"
+
+package:
+  name: gst-plugins-ugly
+  version: ${{ version }}
+
+source:
+  url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-${{ version }}.tar.xz
+  sha256: bf9c9f72ee374825cfd43868c285bcb01700df2584069e75d7af455fe48244f8
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - pkg-config
+    - meson
+    - ninja
+    - gettext-tools
+  host:
+    - if: linux
+      then: 
+        - libgl-devel
+        - libegl-devel
+        - libdrm
+    - libiconv
+    - if: not linux
+      then: libintl-devel
+    - gstreamer         1.26.11.*
+    - gst-plugins-base  1.26.11.*
+    - gobject-introspection
+    - glib
+    - if: linux
+      then: 
+        - libxcb
+        - pthread-stubs
+        - expat
+        - xorg-xorgproto
+        - xorg-libxfixes
+        - xorg-libxext
+        - xorg-libx11
+        - xorg-libxrender
+        - xorg-libxxf86vm
+        - xorg-libxau
+        - xorg-libxdamage
+    - x264
+    - zlib
+  run:
+    # We want to pin harder than the run_export from gstreamer
+    - gstreamer         1.26.11.*
+  run_exports:
+    - ${{ pin_subpackage('gst-plugins-ugly', upper_bound='x.x') }}
+
+tests:
+  - script:
+      - if: unix
+        then: 
+            - test -f $PREFIX/lib/gstreamer-1.0/libgstasf${SHLIB_EXT}
+            - test -f $PREFIX/lib/gstreamer-1.0/libgstdvdlpcmdec${SHLIB_EXT}
+            - test -f $PREFIX/lib/gstreamer-1.0/libgstdvdsub${SHLIB_EXT}
+            - test -f $PREFIX/lib/gstreamer-1.0/libgstrealmedia${SHLIB_EXT}
+            - test -f $PREFIX/lib/gstreamer-1.0/libgstx264${SHLIB_EXT}
+      - if: win
+        then: 
+            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstasf.dll exit 1
+            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstdvdlpcmdec.dll exit 1
+            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstdvdsub.dll exit 1
+            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstrealmedia.dll exit 1
+            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstx264.dll exit 1
+      - gst-inspect-1.0 --plugin x264
+
+about:
+  license: LGPL-2.1-or-later
+  license_file: COPYING
+  summary: GStreamer Ugly Plug-ins
+  homepage: http://gstreamer.freedesktop.org/
+  repository: https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly
+
+extra:
+  recipe-maintainers:
+    - yishai1999
+    - tjwilli58
+    - scopatz
+    - kuepe-sl
+    - hmaarrfk
