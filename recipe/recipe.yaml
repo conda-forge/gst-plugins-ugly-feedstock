@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.28.2"
+  version: "1.28.3"
 
 package:
   name: gst-plugins-ugly
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-${{ version }}.tar.xz
-  sha256: fe39a5ee7115e37de9eb65d899ec84c93e6e26ed3ffe25c6d5176cececbab572
+  sha256: 0c04763200467b9b61a916b33646a6916a97cc9869d8b6dca57427b1f2734dee
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -24,7 +24,7 @@ requirements:
     - gettext-tools
   host:
     - if: linux
-      then: 
+      then:
         - libgl-devel
         - libegl-devel
         - libdrm
@@ -57,19 +57,19 @@ requirements:
 tests:
   - script:
       - if: unix
-        then: 
-            - test -f $PREFIX/lib/gstreamer-1.0/libgstasf${SHLIB_EXT}
-            - test -f $PREFIX/lib/gstreamer-1.0/libgstdvdlpcmdec${SHLIB_EXT}
-            - test -f $PREFIX/lib/gstreamer-1.0/libgstdvdsub${SHLIB_EXT}
-            - test -f $PREFIX/lib/gstreamer-1.0/libgstrealmedia${SHLIB_EXT}
-            - test -f $PREFIX/lib/gstreamer-1.0/libgstx264${SHLIB_EXT}
+        then:
+          - test -f $PREFIX/lib/gstreamer-1.0/libgstasf${SHLIB_EXT}
+          - test -f $PREFIX/lib/gstreamer-1.0/libgstdvdlpcmdec${SHLIB_EXT}
+          - test -f $PREFIX/lib/gstreamer-1.0/libgstdvdsub${SHLIB_EXT}
+          - test -f $PREFIX/lib/gstreamer-1.0/libgstrealmedia${SHLIB_EXT}
+          - test -f $PREFIX/lib/gstreamer-1.0/libgstx264${SHLIB_EXT}
       - if: win
-        then: 
-            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstasf.dll exit 1
-            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstdvdlpcmdec.dll exit 1
-            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstdvdsub.dll exit 1
-            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstrealmedia.dll exit 1
-            - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstx264.dll exit 1
+        then:
+          - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstasf.dll exit 1
+          - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstdvdlpcmdec.dll exit 1
+          - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstdvdsub.dll exit 1
+          - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstrealmedia.dll exit 1
+          - if not exist %LIBRARY_LIB%\\gstreamer-1.0\\gstx264.dll exit 1
       - gst-inspect-1.0 --plugin x264
 
 about:
