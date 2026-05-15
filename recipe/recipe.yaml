@@ -12,7 +12,7 @@ source:
   sha256: 0c04763200467b9b61a916b33646a6916a97cc9869d8b6dca57427b1f2734dee
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -42,15 +42,15 @@ requirements:
     - libiconv
     - if: not linux
       then: libintl-devel
-    - gstreamer         1.28.2.*
-    - gst-plugins-base  1.28.2.*
+    - gstreamer         ==${{ version }}
+    - gst-plugins-base  ==${{ version }}
     - gobject-introspection
     - glib
     - x264
     - zlib
   run:
     # We want to pin harder than the run_export from gstreamer
-    - gstreamer         1.28.2.*
+    - gstreamer         =${{ version }}
   run_exports:
     - ${{ pin_subpackage('gst-plugins-ugly', upper_bound='x.x') }}
 
