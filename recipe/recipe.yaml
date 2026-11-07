@@ -12,13 +12,13 @@ source:
   sha256: 550a52536962186f5488e06b5c08f31ae0f18400aee32a3385156d31cb4b1189
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - pkg-config
+    - pkgconfig
     - meson
     - ninja
     - gettext-tools
@@ -41,7 +41,7 @@ requirements:
         - xorg-xorgproto
     - libiconv
     - if: not linux
-      then: libintl-devel
+      then: libintl-devel <1
     - gstreamer         ==${{ version }}
     - gst-plugins-base  ==${{ version }}
     - gobject-introspection
